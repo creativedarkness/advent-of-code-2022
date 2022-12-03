@@ -63,4 +63,4 @@ console.log(calorieGroupTotals)
   return topThree[0] + topThree[1] + topThree[2]
 }
 
-console.log(this.topThree(input))
+// console.log(this.topThree(input))
