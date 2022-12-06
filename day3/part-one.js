@@ -4,7 +4,7 @@ exports = module.exports = (file) => {
 
   const input = fs.readFileSync(path.resolve(__dirname, `./${file}`), 'utf-8').toString().split('\n')
 
-  const priority = {
+  const priorityValue = {
     a: 1,
     b: 2,
     c: 3,
@@ -46,7 +46,7 @@ exports = module.exports = (file) => {
     M: 39,
     N: 40,
     O: 41,
-    p: 42,
+    P: 42,
     Q: 43,
     R: 44,
     S: 45,
@@ -59,13 +59,28 @@ exports = module.exports = (file) => {
     Z: 52,
   }
 
+  const findPriority = function (str) {
+    for (let i = 0; i < str.length - 1; i++) {
+      for (let j = i + 1; j < str.length; j++) {
+        if (str[i] === str[j]) {
+          return str[i];
+        }
+      }
+    }
+    return -1
+  }
+
+  const nums = input.forEach(line => {
+    line.matchAll(/(.).*\1/)
+  })
 
   const prioritiesSum = input.reduce((total, rucksack) => {
-
-
-    total += priority
-
+    const priorities = [...new Set(findPriority(rucksack))].map(char => priorityValue[char])
+    // console.log(input)
+    
+    return total += parseInt(priorities)
   }, 0)
 
-  console.log(prioritiesSum)
+  console.log(nums)
+  return prioritiesSum
 }
