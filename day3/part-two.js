@@ -7,8 +7,23 @@ exports = module.exports = (file) => {
     if(/[a-z]/.test(letter)) return letter.charCodeAt(0) - 96
     else return letter.charCodeAt(0) - 38
   }
+  
+  let sum = 0
+  const findGroupedPrioritySum = function() {
+    for (i = 0; i < input.length; i += 3) {
+      let firstGroup = input[i]
+      let secondGroup = input[i+1]
+      let thirdGroup = input[i+2]
+      for (x = 0; x < firstGroup.length; x++) {
+        if (secondGroup.includes(firstGroup[x]) && thirdGroup.includes(firstGroup[x])) {
+          sum += priorityValue(firstGroup[x])
+          break
+        }
+      }
+  }
+  }
 
+  findGroupedPrioritySum()
 
-
-  return 0
+  return sum
 }
