@@ -3,6 +3,7 @@
 // const day3Part1 = require('./day3/part-one.js')
 // const day3Part2 = require('./day3/part-two.js')
 // const dayFour = require('./day4/day-four.js')
+const daySix = require('./day6/day-six.js')
 
 // console.log(day2Part1('dayTwoData.txt'))
 // console.log(day2Part2('dayTwoData.txt'))
@@ -10,3 +11,5 @@
 // console.log(day3Part2('dayThreeData.txt'))
 // console.log('Day 4 Part One:', dayFour('DayFourData.txt'))
 // console.log('Day 4 Part Two:', dayFour('DayFourData.txt', true))
+console.log('Day 6 Part One:', daySix('daySixData.txt'))
+console.log('Day 6 Part Two:', daySix('daySixData.txt', true))
